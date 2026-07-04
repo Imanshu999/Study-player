@@ -96,7 +96,10 @@ dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.datastore.preferences)
   implementation(libs.androidx.lifecycle.runtime.compose)
-  implementation(libs.lifecycle.runtime.ktx)
+  
+  // ✅ एरर वाली लाइन को यहाँ पूरी तरह ठीक कर दिया गया है (androidx जोड़ा गया है)
+  implementation(libs.androidx.lifecycle.runtime.ktx)
+  
   implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.room.ktx)
