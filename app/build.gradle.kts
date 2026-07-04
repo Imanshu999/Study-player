@@ -10,11 +10,13 @@ plugins {
 }
 
 android {
-  namespace = "com.takano3d.studyplayer"
+  // ✅ यहाँ आपके google-services.json वाला सही पैकेज नाम डाल दिया गया है
+  namespace = "com.aistudio.studycontroller.pvkqrx"
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    applicationId = "com.takano3d.studyplayer"
+    // ✅ यहाँ भी पैकेज नाम को पूरी तरह मैच कर दिया गया है
+    applicationId = "com.aistudio.studycontroller.pvkqrx"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
@@ -76,7 +78,7 @@ android {
 
 secrets {
   propertiesFileName = ".env"
-  defaultPropertiesFileName = ".env.example"
+  defaultPropertiesFileName = ".example.env"
 }
 
 googleServices {
@@ -96,10 +98,7 @@ dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.datastore.preferences)
   implementation(libs.androidx.lifecycle.runtime.compose)
-  
-  // ✅ एरर वाली लाइन को यहाँ पूरी तरह ठीक कर दिया गया है (androidx जोड़ा गया है)
   implementation(libs.androidx.lifecycle.runtime.ktx)
-  
   implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.room.ktx)
