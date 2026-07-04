@@ -10,15 +10,17 @@ plugins {
 }
 
 android {
-  namespace = "com.example"
+  // ✅ आपकी कंपनी और नए ऐप का नाम
+  namespace = "com.takano3d.studyplayer"
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    applicationId = "com.aistudio.studycontroller.pvkqrx"
+    // ✅ स्टडी कंट्रोलर से बदलकर स्टडी प्लेयर की नई प्रोडक्शन आईडी
+    applicationId = "com.takano3d.studyplayer"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
-    versionName = "1.0"
+    versionName = "2.0" // Version 2.0
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -38,7 +40,6 @@ android {
         keyAlias = keyAliasEnv
         keyPassword = keyPasswordEnv
       } else {
-        // Fallback to debug signature for local builds to prevent "App Not Installed" errors
         storeFile = file("${rootDir}/debug.keystore")
         storePassword = "android"
         keyAlias = "androiddebugkey"
@@ -70,13 +71,11 @@ android {
   }
   buildFeatures {
     compose = true
-    buildConfig = true
+    buildConfig = true // API Keys को BuildConfig से रीड करने के लिए ज़रूरी
   }
   testOptions { unitTests { isIncludeAndroidResources = true } }
 }
 
-// Configure the Secrets Gradle Plugin to use .env and .env.example files
-// to match the convention used in Web projects.
 secrets {
   propertiesFileName = ".env"
   defaultPropertiesFileName = ".env.example"
@@ -86,18 +85,11 @@ googleServices {
   missingGoogleServicesStrategy = MissingGoogleServicesStrategy.WARN
 }
 
-
-// Some unused dependencies are commented out below instead of being removed.
-// This makes it easy to add them back in the future if needed.
 dependencies {
   implementation(platform(libs.androidx.compose.bom))
   implementation(platform(libs.firebase.bom))
-  // implementation(libs.accompanist.permissions)
+  
   implementation(libs.androidx.activity.compose)
-  // implementation(libs.androidx.camera.camera2)
-  // implementation(libs.androidx.camera.core)
-  // implementation(libs.androidx.camera.lifecycle)
-  // implementation(libs.androidx.camera.view)
   implementation(libs.androidx.compose.material.icons.core)
   implementation(libs.androidx.compose.material.icons.extended)
   implementation(libs.androidx.compose.material3)
@@ -114,19 +106,27 @@ dependencies {
   implementation(libs.androidx.room.runtime)
   implementation(libs.coil.compose)
   implementation(libs.converter.moshi)
+  
+  // 🔥 FIREBASE COMPONENTS
   implementation(libs.firebase.ai)
   implementation(libs.firebase.appcheck.recaptcha)
   implementation(libs.firebase.auth)
   implementation(libs.firebase.firestore)
+  // ✅ गैलरी से वीडियो अपलोड स्टोर करने के लिए आवश्यक डिपेंडेंसी जोड़ी
+  implementation("com.google.firebase:firebase-storage-ktx")
+
+  // 📺 MEDIA PLAYER
   implementation(libs.media3.exoplayer)
   implementation(libs.media3.ui)
+  
   implementation(libs.kotlinx.coroutines.android)
   implementation(libs.kotlinx.coroutines.core)
   implementation(libs.logging.interceptor)
   implementation(libs.moshi.kotlin)
   implementation(libs.okhttp)
-  // implementation(libs.play.services.location)
   implementation(libs.retrofit)
+  
+  // TESTING DEPENDENCIES
   testImplementation(libs.androidx.compose.ui.test.junit4)
   testImplementation(libs.androidx.core)
   testImplementation(libs.androidx.junit)
