@@ -10,12 +10,12 @@ plugins {
 }
 
 android {
-  // ✅ यहाँ आपके google-services.json वाला सही पैकेज नाम डाल दिया गया है
+  // ✅ आपके google-services.json के मुताबिक सही पैकेज नाम
   namespace = "com.aistudio.studycontroller.pvkqrx"
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    // ✅ यहाँ भी पैकेज नाम को पूरी तरह मैच कर दिया गया है
+    // ✅ पैकेज नाम को यहाँ भी अपडेट कर दिया गया है
     applicationId = "com.aistudio.studycontroller.pvkqrx"
     minSdk = 24
     targetSdk = 36
@@ -78,7 +78,8 @@ android {
 
 secrets {
   propertiesFileName = ".env"
-  defaultPropertiesFileName = ".example.env"
+  // ✅ यहाँ फ़ाइल का नाम ठीक करके वापस .env.example कर दिया गया है
+  defaultPropertiesFileName = ".env.example"
 }
 
 googleServices {
