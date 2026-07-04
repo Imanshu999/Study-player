@@ -16,6 +16,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody.Companion.toRequestBody
+// ✅ सही BuildConfig इम्पोर्ट यहाँ जुड़ चुका है
+import com.aistudio.studycontroller.pvkqrx.BuildConfig
 
 class StudyPlayerViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -585,7 +587,8 @@ class StudyPlayerViewModel(application: Application) : AndroidViewModel(applicat
         _geminiResponse.value = null
         viewModelScope.launch {
             try {
-                val apiKey = com.example.BuildConfig.GEMINI_API_KEY
+                // ✅ यहाँ पुराना पैकेज नाम हटाकर सीधे इम्पोर्टेड BuildConfig का इस्तेमाल किया गया है
+                val apiKey = BuildConfig.GEMINI_API_KEY
                 if (apiKey.isEmpty() || apiKey == "MY_GEMINI_API_KEY") {
                     _geminiResponse.value = "Gemini API key is not configured in secrets. Please configure GEMINI_API_KEY."
                     _isGeminiLoading.value = false
