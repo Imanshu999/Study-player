@@ -10,17 +10,15 @@ plugins {
 }
 
 android {
-  // ✅ आपकी कंपनी और नए ऐप का नाम
   namespace = "com.takano3d.studyplayer"
   compileSdk { version = release(36) { minorApiLevel = 1 } }
 
   defaultConfig {
-    // ✅ स्टडी कंट्रोलर से बदलकर स्टडी प्लेयर की नई प्रोडक्शन आईडी
     applicationId = "com.takano3d.studyplayer"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
-    versionName = "2.0" // Version 2.0
+    versionName = "2.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -71,7 +69,7 @@ android {
   }
   buildFeatures {
     compose = true
-    buildConfig = true // API Keys को BuildConfig से रीड करने के लिए ज़रूरी
+    buildConfig = true
   }
   testOptions { unitTests { isIncludeAndroidResources = true } }
 }
@@ -88,7 +86,6 @@ googleServices {
 dependencies {
   implementation(platform(libs.androidx.compose.bom))
   implementation(platform(libs.firebase.bom))
-  
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.compose.material.icons.core)
   implementation(libs.androidx.compose.material.icons.extended)
@@ -99,34 +96,26 @@ dependencies {
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.datastore.preferences)
   implementation(libs.androidx.lifecycle.runtime.compose)
-  implementation(libs.androidx.lifecycle.runtime.ktx)
+  implementation(libs.lifecycle.runtime.ktx)
   implementation(libs.androidx.lifecycle.viewmodel.compose)
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.room.ktx)
   implementation(libs.androidx.room.runtime)
   implementation(libs.coil.compose)
   implementation(libs.converter.moshi)
-  
-  // 🔥 FIREBASE COMPONENTS
   implementation(libs.firebase.ai)
   implementation(libs.firebase.appcheck.recaptcha)
   implementation(libs.firebase.auth)
   implementation(libs.firebase.firestore)
-  // ✅ गैलरी से वीडियो अपलोड स्टोर करने के लिए आवश्यक डिपेंडेंसी जोड़ी
-  implementation("com.google.firebase:firebase-storage-ktx")
-
-  // 📺 MEDIA PLAYER
+  implementation(libs.firebase.storage)
   implementation(libs.media3.exoplayer)
   implementation(libs.media3.ui)
-  
   implementation(libs.kotlinx.coroutines.android)
   implementation(libs.kotlinx.coroutines.core)
   implementation(libs.logging.interceptor)
   implementation(libs.moshi.kotlin)
   implementation(libs.okhttp)
   implementation(libs.retrofit)
-  
-  // TESTING DEPENDENCIES
   testImplementation(libs.androidx.compose.ui.test.junit4)
   testImplementation(libs.androidx.core)
   testImplementation(libs.androidx.junit)
