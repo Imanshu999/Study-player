@@ -1,0 +1,6 @@
+{
+  "name": "Study Player",
+  "description": "An intuitive study assistant and video player with smart class-based subject mapping, search pagination, and a hidden admin panel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
