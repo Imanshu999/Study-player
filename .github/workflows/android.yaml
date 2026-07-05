@@ -1,4 +1,4 @@
-name: Build Signed Android Release APK 🚀
+Name: Build Signed Android Release APK 🚀
 
 on:
   push:
@@ -36,7 +36,7 @@ jobs:
 
       - name: Generate Gradle Wrapper 🛠️
         run: |
-          gradle wrapper --gradle-version 9.3.1
+          gradle wrapper --gradle-version 9.3.1 --no-daemon
           chmod +x gradlew
 
       - name: Setup Gradle 🚀
@@ -66,4 +66,3 @@ jobs:
         with:
           name: study-player-release-apk
           path: app/build/outputs/apk/release/app-release.apk
-          
