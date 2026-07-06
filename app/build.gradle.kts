@@ -79,6 +79,13 @@ android {
     }
     
     testOptions { unitTests { isIncludeAndroidResources = true } }
+
+    // आपके .so फ़ोल्डर को डिटेक्ट करने के लिए यहाँ कोड जोड़ा गया है
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDirs("src/main/jniLibs")
+        }
+    }
 }
 
 secrets {
