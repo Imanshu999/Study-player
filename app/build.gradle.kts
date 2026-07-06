@@ -3,7 +3,10 @@ import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesS
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.google.devtools.ksp)
+    
+    // यहाँ अंदर भी हमने वर्ज़न को बिल्कुल सेम कर दिया ताकि टकराव खत्म हो जाए
+    id("com.google.devtools.ksp") version "2.0.21-1.0.26"
+    
     alias(libs.plugins.roborazzi)
     alias(libs.plugins.secrets)
     alias(libs.plugins.google.services)
@@ -80,7 +83,7 @@ android {
     
     testOptions { unitTests { isIncludeAndroidResources = true } }
 
-    // आपके द्वारा बनाए जा रहे C++ कोड (magtsync) को ऑटो-कंपाइल करने का सेटअप यहाँ है
+    // आपका C++ कंपाइल करने वाला कोड (ताकि libmagtsync.so खुद बन सके)
     externalNativeBuild {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
